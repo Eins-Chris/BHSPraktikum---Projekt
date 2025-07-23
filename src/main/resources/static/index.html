@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smallest Number</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Aufgabe: <a href="https://www.codewars.com/kata/573992c724fc289553000e95" target="_blank">Find the smallest</a></h1>
+
+    <input type="number" id="numberInput" placeholder="Zahl eingeben">
+    <button onclick="sendNumber()">Senden</button>
+
+    <p id="input" class="text">Warte auf Input</p>
+    <p id="response"></p>
+    <p id="output"></p>
+
+    <script>
+        async function sendNumber() {
+            document.getElementById("response").classList.add("text");
+            document.getElementById("output").classList.add("text");
+        }
+    </script>
+</body>
+</html>
