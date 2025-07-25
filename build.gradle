@@ -31,7 +31,7 @@ tasks.named('test') {
 
 task npmBuild(type: Exec) {
 	description = "Buildet das Vite-Frontend"
-	workingDir 'frontend'
+	workingDir '/frontend'
 	commandLine 'C:/Program Files/nodejs/npm.cmd', 'run', 'build'
 }
 
