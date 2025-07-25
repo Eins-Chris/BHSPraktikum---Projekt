@@ -12,6 +12,7 @@ class SmallestNumberTest {
         assertEquals(res,
                 Arrays.toString(SmallestNumber.smallest(n)));
     }
+
     @Test
     public void test() {
         System.out.println("Basic Tests smallest");
@@ -22,6 +23,11 @@ class SmallestNumberTest {
         testing(269045, "[26945, 3, 0]");
         testing(296837, "[239687, 4, 1]");
         testing(2147483647, "[1247483647, 0, 1]");
+    }
+
+    @Test
+    public void single() {
+        assertArrayEquals(new long[] {1,0,5}, SmallestNumber.smallest(100000));
     }
 
 }

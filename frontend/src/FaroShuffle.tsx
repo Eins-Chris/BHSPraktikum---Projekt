@@ -1,17 +1,14 @@
 import { useState } from 'react';
-import './App.css';
 import * as React from "react";
 
-function App() {
+function SmallestNumb() {
     const [inputNumber, setInputNumb] = useState('');
-    const [smallestNumber, setSmallestNumb] = useState('');
-    const [fromIndex, setFromIndex] = useState('');
-    const [toIndex, setToIndex] = useState('');
+    const [shuffleQuantity, setSmallestNumb] = useState('');
     const [error, setError] = useState(null);
     const [visible, setVisible] = useState(false);
 
     const handleSubmit = async () => {
-        const response = await fetch(`smallestnumb/${inputNumber}`)
+        const response = await fetch(`faroshuffle/${inputNumber}`)
             .then(result => {
                 if (!result.ok) {
                     throw new Error('Netzwerkantwort war nicht ok');
@@ -24,10 +21,8 @@ function App() {
         if (error != null) {
             return;
         }
-        setInputNumb(response.inputNumber);
-        setSmallestNumb(response.smallestNumber);
-        setFromIndex(response.fromIndex);
-        setToIndex(response.toIndex);
+        setInputNumb(response[0]);
+        setSmallestNumb(response[1]);
         setVisible(true);
     };
 
@@ -39,7 +34,7 @@ function App() {
 
     return (
         <div>
-            <h1>Aufgabe: <a href={"https://www.codewars.com/kata/573992c724fc289553000e95"}>Find the smallest</a></h1>
+            <h1>Aufgabe: <a href={"https://www.codewars.com/kata/57bc802c615f0ba1e3000029"}>Faro Shuffle Count</a></h1>
 
             <input type="number" placeholder="Zahl eingeben" value={inputNumber} onChange={e => handleChange(e)}/>
             <button onClick={handleSubmit}> Absenden </button>
@@ -49,14 +44,12 @@ function App() {
             {visible && (
                 <div>
                     <h2>Ergebnis</h2>
-                    <p><strong>Eingegebene Zahl:</strong> {inputNumber}</p>
-                    <p><strong>Kleinste Zahl:</strong> {smallestNumber}</p>
-                    <p><strong>Von Index:</strong> {fromIndex}</p>
-                    <p><strong>Zum Index:</strong> {toIndex}</p>
+                    <p><strong>Größe des Kartendecks:</strong> {inputNumber}</p>
+                    <p><strong>Benötigte Shuffle's:</strong> {shuffleQuantity}</p>
                 </div>
             )}
         </div>
     );
 }
 
-export default App;
+export default SmallestNumb;

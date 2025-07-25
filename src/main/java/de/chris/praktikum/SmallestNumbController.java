@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.*;
 public class SmallestNumbController {
 
     @GetMapping("/{numb}")
-    Result smallestNumber(@PathVariable long numb) {
+    SmallestNumbResult smallestNumber(@PathVariable long numb) {
         long[] smallest = SmallestNumber.smallest(numb);
-        return new Result(numb, smallest[0], smallest[1], smallest[2]);
+        return new SmallestNumbResult(numb, smallest[0], smallest[1], smallest[2]);
     }
 
 }
